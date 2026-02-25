@@ -22,16 +22,16 @@ export default function HeroBanner() {
                   </div>
                   <figcaption className="b-bnnr-caption m-vertical_middle m-horizontal_center absolute inset-0 flex flex-col items-center justify-center text-center text-white">
                     <div className="b-banner_content px-4">
-                      <div className="b-actions m-row m-center flex flex-wrap justify-center gap-4">
+                      <div className="b-actions m-row m-center flex flex-col items-center justify-center gap-4">
                         <a
                           href="/en-us/experience-flow-3.html"
-                          className="b-button m-large m-white inline-block rounded border border-white bg-white px-6 py-3 font-medium text-neutral-900 hover:bg-neutral-100"
+                          className="b-button m-large m-white inline-block rounded-none border border-white bg-white px-10 py-4 font-medium text-neutral-900 hover:bg-neutral-100"
                         >
                           Explore the Road
                         </a>
                         <a
                           href="/en-us/experience-wild-3.html"
-                          className="b-button m-large m-white inline-block rounded border border-white bg-white px-6 py-3 font-medium text-neutral-900 hover:bg-neutral-100"
+                          className="b-button m-large m-white inline-block rounded-none border border-white bg-white px-10 py-4 font-medium text-neutral-900 hover:bg-neutral-100"
                         >
                           Explore the Trail
                         </a>

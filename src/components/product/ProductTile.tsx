@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export type ProductTileProps = {
   id: string;
@@ -108,14 +109,14 @@ export default function ProductTile({
                     aria-roledescription="slide"
                     aria-hidden={i !== currentSlide}
                   >
-                    <a className="block aspect-square w-full" href={href}>
+                    <Link className="block aspect-square w-full" to={`/products/${id}`}>
                       <img
                         src={img.src}
                         alt={img.alt}
                         className="h-full w-full object-contain"
                         loading={i === 0 ? "eager" : "lazy"}
                       />
-                    </a>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -127,7 +128,7 @@ export default function ProductTile({
           {/* Swatches */}
           <div className="b-product_tile_swatches-wrap mb-2">
             <div className="b-product_tile_swatches flex flex-wrap items-center gap-1">
-              {visibleSwatches.map((s, i) => (
+              {visibleSwatches.map((s) => (
                 <a
                   key={s.colorId}
                   href={href + (s.href.startsWith("?") ? s.href : "?" + s.href)}
@@ -151,9 +152,12 @@ export default function ProductTile({
           </div>
 
           <div className="b-product_tile-title mb-1">
-            <a href={href} className="b-product_tile-link font-medium text-neutral-900 hover:underline">
+            <Link
+              to={`/products/${id}`}
+              className="b-product_tile-link font-medium text-neutral-900 hover:underline"
+            >
               {name}
-            </a>
+            </Link>
           </div>
 
           {labels.length > 0 && (

@@ -1,4 +1,8 @@
-export default function Header() {
+type HeaderProps = {
+  onOpenAuth?: () => void;
+};
+
+export default function Header({ onOpenAuth }: HeaderProps) {
   return (
     <header
       className="l-header border-b border-neutral-200 bg-white"
@@ -234,9 +238,12 @@ export default function Header() {
                           href="/en-us/choose-your-experience.html"
                           className="block rounded overflow-hidden bg-neutral-100 aspect-3/4"
                         >
-                          <span className="flex items-center justify-center w-full h-full text-neutral-400 text-sm">
-                            Experience 3
-                          </span>
+                          <img
+                            src="/gifs/experience-men.gif"
+                            alt="Choose your Experience – Men"
+                            className="h-full w-full object-cover"
+                            loading="lazy"
+                          />
                         </a>
                         <figcaption className="b-promo_tile-caption mt-2">
                           <p className="b-promo_tile-title text-sm text-neutral-600 lg:hidden">
@@ -453,9 +460,12 @@ export default function Header() {
                           href="/en-us/choose-your-experience.html"
                           className="block rounded overflow-hidden bg-neutral-100 aspect-3/4"
                         >
-                          <span className="flex items-center justify-center w-full h-full text-neutral-400 text-sm">
-                            Experience 3
-                          </span>
+                          <img
+                            src="/gifs/experience-women.gif"
+                            alt="Choose your Experience – Women"
+                            className="h-full w-full object-cover"
+                            loading="lazy"
+                          />
                         </a>
                         <figcaption className="b-promo_tile-caption mt-2">
                           <p className="b-promo_tile-title text-sm text-neutral-600 lg:hidden">
@@ -574,23 +584,34 @@ export default function Header() {
                     title="Search"
                   >
                     <span className="b-search_toggle-icon" aria-hidden>
-                      <svg
-                        width="32"
-                        height="32"
-                        viewBox="0 0 32 32"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      >
-                        <path d="M18.9645 17.5503L26.0355 24.6213L24.6213 26.0355L17.5503 18.9645L18.9645 17.5503Z" />
-                        <path
-                          fillRule="evenodd"
-                          d="M13.9645 19.9645C17.2782 19.9645 19.9645 17.2782 19.9645 13.9645C19.9645 10.6508 17.2782 7.96448 13.9645 7.96448C10.6508 7.96448 7.96448 10.6508 7.96448 13.9645C7.96448 17.2782 10.6508 19.9645 13.9645 19.9645ZM13.9645 21.9645C18.3828 21.9645 21.9645 18.3828 21.9645 13.9645C21.9645 9.5462 18.3828 5.96448 13.9645 5.96448C9.5462 5.96448 5.96448 9.5462 5.96448 13.9645C5.96448 18.3828 9.5462 21.9645 13.9645 21.9645Z"
-                        />
-                      </svg>
+                      <img
+                        src="/images/svg/search.svg"
+                        alt=""
+                        className="w-5 h-5"
+                      />
                     </span>
                     <span className="b-search_toggle-text text-sm hidden lg:inline">
                       Search
+                    </span>
+                  </button>
+                </div>
+                <div className="b-header_actions-item">
+                  <button
+                    type="button"
+                    className="b-header_button flex items-center gap-1.5 p-2 text-sm font-medium text-neutral-700 hover:text-neutral-900"
+                    onClick={() => onOpenAuth?.()}
+                  >
+                    <img
+                      src="/images/svg/login.svg"
+                      alt=""
+                      className="w-5 h-5 hidden lg:block"
+                      aria-hidden
+                    />
+                    <span className="b-header_wishlist-copy text-sm hidden lg:inline">
+                      Log{" "}
+                    </span>
+                    <span className="lg:hidden" aria-hidden>
+                      Log In
                     </span>
                   </button>
                 </div>
@@ -602,19 +623,14 @@ export default function Header() {
                     aria-label="Wish List"
                   >
                     <span className="b-header_wishlist-icon" aria-hidden>
-                      <svg
-                        width="32"
-                        height="32"
-                        viewBox="0 0 32 32"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      >
-                        <path d="M15.988 24.344 8.471 16.4c-1.961-2.07-1.961-5.43 0-7.502 1.687-1.783 4.277-2.032 6.217-.745.314.207.611.456.884.745l.44.465.445-.47c.272-.287.567-.534.879-.741 1.933-1.283 4.516-1.036 6.198.742 1.955 2.065 1.955 5.413 0 7.477z" />
-                      </svg>
+                      <img
+                        src="/images/svg/like.svg"
+                        alt=""
+                        className="w-5 h-5"
+                      />
                     </span>
                     <span className="b-header_wishlist-copy text-sm hidden lg:inline">
-                      Wish List
+                      Wish
                     </span>
                   </a>
                 </div>
@@ -625,19 +641,11 @@ export default function Header() {
                     title="View your cart"
                     aria-label="View your cart"
                   >
-                    <svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    >
-                      <path d="M6.93428 7.75H5.15369V5.75H8.47948L11.3365 16.7018L10.1082 18.9415H22.175V20.9415H6.82816L9.18367 16.3727L6.93428 7.75Z" />
-                      <path d="M23.6102 9.87773H9.05806V7.87773H26.8463L22.0165 17.5373H10.6857V15.5373H20.7804L23.6102 9.87773Z" />
-                      <path d="M12.4623 24.1224C12.4623 25.2975 11.5097 26.2501 10.3346 26.2501C9.15955 26.2501 8.20696 25.2975 8.20696 24.1224C8.20696 22.9473 9.15955 21.9948 10.3346 21.9948C11.5097 21.9948 12.4623 22.9473 12.4623 24.1224Z" />
-                      <path d="M22.2454 24.1224C22.2454 25.2975 21.2928 26.2501 20.1177 26.2501C18.9427 26.2501 17.9901 25.2975 17.9901 24.1224C17.9901 22.9473 18.9427 21.9948 20.1177 21.9948C21.2928 21.9948 22.2454 22.9473 22.2454 24.1224Z" />
-                    </svg>
+                    <img
+                      src="/images/svg/cart.svg"
+                      alt=""
+                      className="w-5 h-5"
+                    />
                   </a>
                 </div>
                 <div className="b-header_actions-item m-hamburger md:hidden">

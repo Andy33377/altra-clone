@@ -24,7 +24,7 @@ export default function NewArrivalsSection() {
               className="b-carousel-track flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 md:overflow-visible"
               style={{ scrollbarWidth: "thin" }}
             >
-              {newArrivalsProducts.map((p) => (
+              {newArrivalsProducts.map((p: (typeof products)[number]) => (
                 <div
                   key={p.id}
                   className="b-carousel-item shrink-0 w-[280px] sm:w-[300px] md:w-full snap-start"
